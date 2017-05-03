@@ -1,0 +1,21 @@
+program XLSample6 =
+	// tests that constant declarations can be intermixed
+	// with variable declarations
+	// correct output is as follows:
+	//		1
+	//		5
+	//		3
+	var a : Integer;
+	constant b : Integer := 5;
+	var c : Integer;
+
+begin // XLSample6
+	a := 1;
+	c := 3;
+	put(a);
+	newLine;
+	put(b);
+	newLine;
+	put(c);
+	newLine;
+end XLSample6.

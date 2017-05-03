@@ -1,0 +1,9 @@
+program bad4 =
+	var x : Integer := 2;
+begin // bad4
+	if x > 0 then
+		x := x -1 // no semicolon
+	else
+		x := x + 1;
+	end if;
+end bad4.

@@ -1,0 +1,8 @@
+program bad3 =
+	var x : Integer;
+begin // bad3
+	x := 3;
+	if x + 2 then // (x+2) is not a boolean
+		x := x + 1;
+	end if;
+end bad3.

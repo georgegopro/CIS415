@@ -1,0 +1,17 @@
+program XLSample7a =
+	// tests copy out -- should have compilation error
+	var i : Integer;
+
+	procedure p(var x : Integer) =
+	begin
+		put(x);
+		x := 6;
+		put(i);
+		i := 7;
+	end p;
+
+begin // XLSample7
+	i := 5;
+	p(i+2); // should be error when we check...
+	put(i);
+end XLSample7a.

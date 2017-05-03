@@ -1,0 +1,6 @@
+program bad9 =
+	var b : Boolean;
+
+begin // bad9
+	b := false; // false must be in upper case
+end bad9.

@@ -1,0 +1,37 @@
+program XLSample3 =
+	// similar to XLSample1 except an array is used
+	// correct output is:	3	-1	2187
+	constant one : Integer := 1;
+	constant two : Integer := 2;
+	type IntArray = array [1..14] of Integer;
+	var x : IntArray; 
+	var y : Integer;
+
+begin // XLSample3
+	x[1]  := one;
+	x[2]  := two;
+	x[3]  := one;
+	x[4]  := two;
+	x[5]  := one;
+	x[6]  := two;
+	x[7]  := one;
+	x[8]  := two;
+	x[9]  := one;
+	x[10] := two;
+	x[11] := one;
+	x[12] := two;
+	x[13] := one;
+	x[14] := two;
+	y := (x[1]+x[2])*
+	      ((x[3]+x[4])*
+		   ((x[5]+x[6])*
+		    ((x[7]+x[8])*
+	         ((x[9]+x[10])*
+			  ((x[11]+x[12])*
+			   (x[13]+x[14]))))));
+	put(one + two);
+	put(-1);
+	newLine;
+	put(y);
+	newLine;
+end XLSample3.

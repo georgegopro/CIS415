@@ -1,0 +1,75 @@
+CIS415 Fall16
+Yuan Wang
+UOID:951222583
+
+
+1.OSC 10.11
+a. FCFS
+Total distance
+2150-2069-1212-2296-2800-544-1618-356-1523-4965-3681
+81+857+1084+504+2256+1074+1262+1167+3442+1284 = 13011
+
+b. SSTF
+Total distance
+2150-2069-2296-2800-3681-4965-1618-1523-1212-544-356
+81+227+504+881+1284+3347+95+311+668+188 = 7586
+
+c. SCAN
+Total distance
+2150-2296-2800-3681-4965-4999-2069-1618-1523-1212-544-356
+146+504+881+1284+34+2930+451+95+311+668+188 = 7492
+
+d. LOOK
+Total distance
+2150-2296-2800-3681-4965-2069-1618-1523-1212-544-356
+146+504+881+1284+2896+451+95+311+668+188 = 7424
+
+e. C-SCAN
+Total distance
+2150-2296-2800-3681-4965-356-544-1212-1523-1618-2069
+146+504+881+1284+34(4999-4965)+4999(4999-0)+356(356-0)+188+668+311=95+451= 9917
+
+f. C-LOOK
+Total distance
+2150-2296-2800-3681-4965-356-544-1212-1523-1618-2069
+146+504+881+1284+4609(4965-356)+188+668+311+95+451= 9137
+
+2.
+a. What is the maximum size of a disk(in bytes)for which one can use this file system?
+Answer: (number of dab block +(db_size/dba)+(db_size/dba)^2+(db_size/dba)^3)*db_size
+Each block is 1KB = 2^10 bytes
+max disk size = (8+2^8+2^16+2^24)*2^10 = 2^34 bytes
+
+b. What is the maximum size of a file(in bytes)that can be stored in this file system?
+Answer: block size = 1024 bytes
+number of block numbers in an indirection block
+= block size /4
+= 256 bytes
+number of blocks for file data in that file object
+=8 + 256 + 256^2 + 256^3
+Maximum file size
+= (direct +single indirect + double indirect + triple indirect)*(blocks)
+=(8+ 1024/4 + (1024/4)^2 +(1024/4)^3)*(1024)
+=(8 + 256+ 65536 + 16777216)*1024
+=16843016 *1024 bytes
+= 17247248384 bytes
+
+
+3.
+a. blocks, also directories, other filesystem bookkeeping data, and non-filesystem
+disks.
+
+
+b. The primary caches use a virtual addressing(CPU) scheme employing both virtual tags and virtual addresses. The secondary cache employs a hybrid addressing scheme which uses virtual tags and partial physical addresses. Between virtual address and physical address, they are handled by memory-management unit, MMU. It can take on many forms, the base register is now termed a relocation register, whose value is added to every memory request at the hardware level.
+the cache cannot contain the contents of all of main memory, and all memory addresses  are cacheable, each cache entry is tagged using the address of the data word in main memory
+
+c. t = 1+p*(r/15) = 1/5(r)
+p(r/15) = 1/5(r) -1
+p = 3-15/r us
+the cache hit rate p is (3-15/r) us
+
+d.
+i. memory access time = cache hit ratio*cache access time +(1-hit ratio)*main memory
+= 0.95*2+(1-0.95)*100= 6.9 ns
+
+ii.0.95*2+(1-0.95)*100+(0.001*10000000) = 10006.9 ns

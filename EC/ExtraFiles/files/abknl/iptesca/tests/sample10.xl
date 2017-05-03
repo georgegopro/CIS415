@@ -1,0 +1,29 @@
+program XLSample10 =
+	var i: Integer;
+	type S =	record
+					f, g : Boolean;
+				end record;
+	var v : S;
+
+	procedure p(x : Integer) =
+		constant n : Integer := 10;
+		type T = array[1..n] of Integer;
+		var y, z : T;
+
+		procedure q =
+		begin // q
+			z[n] := x;
+			v.g := FALSE;
+		end q;
+
+	begin // p
+		y := z;
+		q;
+		put(x);
+	end p;
+
+begin // XLSample10
+	v.f := TRUE;
+	get(i);
+	p(i);
+end XLSample10.

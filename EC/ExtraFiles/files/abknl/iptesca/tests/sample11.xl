@@ -1,0 +1,38 @@
+program XLSample11 =
+	constant a : Integer := 10;
+	constant b : Boolean := FALSE;
+	type T1 = array[a..a] of Integer;
+	type T2 =	record
+					f,g : Integer;
+					h : Boolean;
+				end record;
+	var x, y : Integer;
+	var z : Boolean;
+
+	procedure q(var x : T1; z : T2) =
+	begin //q
+		x[10] := 1;
+		z.f := 1;
+		q(x,z);
+	end q;
+
+	procedure p =
+	begin // p
+		get(x);
+		put(x + 1);
+	end p;
+
+begin // XLSample11
+	p;
+	x := 1;
+	x := a;
+	x := y;
+	x := -(x + 1) * (y - 1)/9 mod 9;
+	z := not b;
+	z := z or z and z;
+	if x /= y then
+		while x < y loop
+			// empty statement
+		end loop;
+	end if;
+end XLSample11.

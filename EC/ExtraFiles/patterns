@@ -1,0 +1,14 @@
+The directory tree against which you can test your implementation is rooted
+at the directory named "files".  The directory names and file names in the tree
+have been generated using a random number generator.
+
+The following command lines assume that the file_crawler executable
+and P*.out are contained in the current working directory.  If no output
+results from execution of a particular command, then your program
+is generating the correct output.
+
+./file_crawler '*' files | diff - P1.out
+./file_crawler '*.c' files | diff - P2.out
+./file_crawler '*.[ch]' files | diff - P3.out
+./file_crawler 'a?*.java' files | diff - P4.out
+./file_crawler '???????' files | diff - P5.out

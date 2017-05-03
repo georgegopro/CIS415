@@ -1,0 +1,18 @@
+program XLSample7c =
+	// tests copy out
+	// output should be:	5	5	7
+	var i : Integer;
+
+	procedure p(x : Integer) =
+	begin
+		put(x);
+		x := 6;
+		put(i);
+		i := 7;
+	end p;
+
+begin // XLSample7c
+	i := 5;
+	p(i);
+	put(i);
+end XLSample7c.

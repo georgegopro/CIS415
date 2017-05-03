@@ -1,0 +1,15 @@
+program bad11 =
+	constant
+	// A
+		: Integer := 1;
+	constant b : Integer := b;
+	type T = array[1..10] of T;
+	type U =	record
+					f, g : U;
+				end record;
+	var x, y, x : Integer;
+
+begin // bad11
+	x := a;
+	y := a;
+end bad11.

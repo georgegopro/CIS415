@@ -1,0 +1,20 @@
+program XLSample2 =
+	// test identifiers for length and capitalization
+	// correct output:	1	2
+	var x: Integer := 0;
+	var ThisIsAVeryLongIdentifier : Integer;
+	var ThisIsAVeryLongIdentifierAlso : Integer;
+
+begin // XLSample2
+	x := 1;
+	put(x);
+	ThisIsAVeryLongIdentifier := 1;
+	ThisIsAVeryLongIdentifierAlso := 2;
+	if (ThisIsAVeryLongIdentifier /= 1)
+		or (ThisIsAVeryLongIdentifierAlso /= 2) then
+		put(" ERROR");
+	else
+		put(ThisIsAVeryLongIdentifierAlso);
+	end if;
+	newLine;
+end XLSample2.

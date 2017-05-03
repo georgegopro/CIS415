@@ -1,0 +1,47 @@
+program XLSample9 =
+	constant a : Integer := 1;
+	type T = array[1..2] of Integer;
+	constant b : Integer := a;
+	type U =	record
+					f, g : Integer;
+					h : Boolean;
+				end record;
+	type V =	record
+					f : Integer;
+				end record;
+	var x, y : T;
+	var z : U;
+
+	procedure p(var x : Integer; y : Boolean) =
+		constant a : Integer := 1;
+
+		procedure q(x : Integer) =
+			type T = array[1..2] of Integer;
+		begin // q
+			x := -1;
+			x := x;
+			x := (2-1)*(2+1)/2 mod 2;
+			if x < x then
+				while x = x loop
+					q(x);
+				end loop;
+			elsif not (x /= x) then
+				// empty statement
+			end if;
+		end q;
+
+	begin // p
+		if x >= x then
+			y := TRUE;
+		end if;
+	end p;
+
+	procedure r =
+		var x : T;
+	begin // r
+		x[1] := 5;
+	end r;
+
+begin // XLSample9
+	z.f := 6;
+end XLSample9.

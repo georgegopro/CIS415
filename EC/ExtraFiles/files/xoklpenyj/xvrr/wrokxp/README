@@ -1,0 +1,54 @@
+README file for the in-process Homework Database
+
+1 February 2010
+
+This file accompanies 5 other files that constitute this distribution:
+1. hwdb.tar - all of the source files and a Makefile for constructing
+              hwdbserver, hwdbclient, sniff, and flowmonitor
+2. srpc.tar - additional source files for exercising the simple RPC subsystem
+3. srpc.pdf - design note for the simple RPC subsystem
+4. hwdb.pdf - design note for the homework stream database system
+5. periodic.pdf - design note for periodic client apps using hwdb, such as
+                  flowmonitor
+
+To build the system, do the following:
+a. create a directory to hold the system, usually called "hwdb", and cd to it
+b. copy hwdb.tar into that directory
+c. tar xvf hwdb.tar
+d. make
+e. in one terminal window, invoke "./hwdbserver -c hwdb.rc"
+f. in another terminal window, invoke "sudo ./sniff"
+g. in yet another window, invoke "./flowmonitor" - this will simply report
+   to you the number of flow records retrieved from the database in the last
+   5 seconds
+h. if the hostname for the router is "a.b.c.d", then you can invoke the flow
+   monitor on any other connected host by invoking "./flowmonitor -h a.b.c.d"
+
+This code has been successfully built under CYGWIN on 32 bit systems, linux on
+32 bit systems, and linux on 64 bit systems.  sniff requires that PCAP has
+been installed on the linux systems; sniff is not built on CYGWIN systems.
+sniff is the last application constructed, so if you are building on a system
+where PCAP has not been installed, then all of the other applications should
+build correctly before make fails when attempting to compile sniff.c.
+
+The code has been exercised for 48 hours on our wireless router, with a
+synthetic load of HTTP traffic over the wireless medium.  sniff inserted all
+flow records without error during that time, while another client, on another
+node in the network, was busy inserting tuples into a different table.  Two
+flow monitors, one running on a 32bit linux system, the other on a 64bit linux
+system, successfully monitored the flow records in the database during the
+entire test period.
+
+If you wish to further exercise the RPC system, perform the following commands,
+again assuming that your current directory is the hwdb directory:
+a. copy srpc.tar into the current directory
+b. tar xvf srpc.tar
+c. make -f Makefile.srpc
+d. fire up ./echoserver
+e. exercise the server using echoclient, sinkclient, sgenclient, and mthclient
+f. callbackserver and callbackclient exercise the ability for a server
+   to call back a client
+
+If problems, please report them to joe@dcs.gla.ac.uk and koliousa@dcs.gla.ac.uk.
+
+Joe

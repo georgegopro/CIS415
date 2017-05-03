@@ -1,0 +1,56 @@
+CIS415 Fall16
+Yuan Wang
+
+
+1.OSC 4.14
+a.I will create one thread to perform the input and output.Because there is no benefit for creating additional threads, and don't save efficiency.
+
+b.I will create four threads same as cores.any less the CPU just sit idle and waiting time will wasted, more than four could not able to run.
+
+
+
+2.OSC4.18
+a.Some of processors will keep sit idle at least part of time.
+
+b.it is possible to use all processors.the result in processors would keep idle when some threads has blocked.
+
+c.All processors will be used if it has appropriately kernel threads.The situation should be fine, although the issues with user-level threads in 
+general apply.
+
+
+3.OSC 6.6
+A CPU-bound program might have a few very long CPU bursts. On the other site, an I/O-bound program would typically have many very short CPU burst
+as a new I/O process is set, it will have no processor time from recent, and it is lead favor I/O bound program. because these process can finish
+fastly, the cpu can able to work on CPU-bound program when it recieve more I/O-bound process.
+
+
+4.OSC 6.11
+a. CPU utilization is making the CPU busy as possible. On the one hand, we may minimize context switching to increase CPU utilization. On the other
+hand it is conflict to tasks would need to wait for a long time when mnimize context switching and increase reponse time. 
+
+b.To lower the average turnaround time, we plan the short tasks first as we complete faster. It is conflict with long jobs need
+to wait for a long time that increasing waiting time. Like book said, the shortest processes always take priority.
+
+c.run long running CPU-bound tasks without context switching will casue maximize CPU utilization, schedule I/O-bound tasks as soon as they are ready
+need context switching will maximize I/O device utilization.
+
+5.Real-time scheduling
+a.the rate monotonic algorithm is a procedure for assigning fixed priorities to tasks to maximize their "schedulability". A task set is considered
+schedulable if all tasks meet all deadline all the time. and the algorithm is assign the priority of each tasks according to its period, so that the
+shorter the period the higher the priority.
+
+b.(i)Assume a set of n independent tasks: S ={C1,T1},{C2,T2}..{Cn, Tn} and U = 1, test U<=B(n)=n*(2^(1/n)-1), then S is schedulable by RMS
+R1 = 0, T1 = 4,  1= C1
+R2 = 0, T2 = 8,  2 =C2
+R3 = 0, T3 = 20, 2 =C3
+The utilization will 1/4 + 2/8 + 2/20 = 0.6, B(3) = 3*(2^(1/3)-1) = 0.77976.. sine 0.6 < 0.77976.. the system is feasible schedule, will never miss deadline if 
+RMA applied
+
+(ii)A valid schedule is a feasible schedule if every job meets its timing constraints, we can assume the set of T4 is {0,5,1} we calculate it by using RMS algorithm.
+T1=4,C1=1
+T2=8,C2=2
+T3=20,C3=2
+T4=5,C4=1
+since the higher rate(period), the higher priority, T1>T2>T4>T3.
+the utilization will be 1/4+2/8+2/20+1/5 = 0.8. 
+B(4) = 4*(2^(1/4)-1) = 0.7568, 0.8 > B(n), this is bring to no conclusion, Fail the UB test. So I don't agree with colleague asserts.

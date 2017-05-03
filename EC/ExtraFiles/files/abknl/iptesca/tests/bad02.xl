@@ -1,0 +1,7 @@
+program bad2 =
+	constant i : Integer := 5;
+	var x : Integer;
+begin // bad2
+	x := 2;
+	i := x; // assign to constant
+end bad2.

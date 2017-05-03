@@ -1,0 +1,55 @@
+program XLSample12 =
+	// quicksort
+	constant max : Integer := 10;
+	type T = array[1..max] of Integer;
+	var a : T;
+	var k : Integer;
+
+	procedure quickSort(m, n : Integer) =
+		var i, j : Integer;
+
+		procedure partition =
+			var r, w : Integer;
+		begin // partition
+			r := a[(m+n)/2];
+			i := m;
+			j := n;
+			while i < j loop
+				while a[i] < r loop
+					i := i + 1;
+				end loop;
+				while r < a[j] loop
+					j := j - 1;
+				end loop;
+				if i <= j then
+					w := a[i];
+					a[i] := a[j];
+					a[j] := w;
+					i := i + 1;
+					j := j - 1;
+				end if;
+			end loop;
+		end partition;
+
+	begin // quicksort
+		if m < n then
+			partition;
+			quicksort(m, j);
+			quicksort(i, n);
+		end if;
+	end quicksort;
+
+begin // XLSample12
+	k := 1;
+	while k <= max loop
+		get(a[k]);
+		k := k + 1;
+	end loop;
+	quicksort(1, max);
+	k := 1;
+	while k <= max loop
+		put(a[k]);
+		newLine;
+		k := k + 1;
+	end loop;
+end XLSample12.

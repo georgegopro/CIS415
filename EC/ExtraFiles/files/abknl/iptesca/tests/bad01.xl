@@ -1,0 +1,5 @@
+program bad1 =
+	var x : Integer;
+begin // bad1
+	x := TRUE; // type mismatch
+end bad1.

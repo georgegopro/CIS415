@@ -1,0 +1,84 @@
+Yuan Wang
+Duckid: yuanw
+Assignment 3
+11/07/2016
+
+
+1. OSC 7.16
+a. Increase Available(new resources added)
+It’s safe all the time. It cannot put the system into unsafe state
+
+b. Decrease Available(resource permanently removed from system)
+It’s safe only when Max<=Available. Remove resources may put the system into an unsafe sat
+
+
+c. Increase Max for one process(the process needs more resources than allowed , it may want more)
+It’s safe only when Max<=Available. 
+
+d. Decrease Max for one process(the process decides it does not need that many resources)
+It’s safe all the time. It cannot put the system into unsafe state
+
+e. Increase the number of processes
+It’s safe all the time. Increasing the number of processes puts more demand on the system.
+
+f. Decrease the number of processes
+It’s safe all the time.
+
+
+2. OSC 8.13
+a. Contiguous memory
+the scheme contains external fragmentation problem, however, no internal fragmentation problem since the address spaces are together and holes develop as done processes release its space and new processes is smaller than old one. and it does not allow processes to share code.
+
+b. pure paging
+There is no external fragmentation, but there is internal fragmentation, it is able to share code between processes.
+
+c. pure segmentation
+There is external fragmentation, but there is no internal fragmentation, it is able to share code between processes.
+
+3 OSC 8.25
+a. Memory reference needs two actions of memory accessing, 2*50ns = 100ns
+
+b. 75%(50ns + 2ns) + 25%(100ns + 2ns) = 64.5ns
+
+4. OSC 9.14
+a. TLB miss with no page fault
+TTLB did not has page table entry, but it did exist in the page table and the entry is valid.
+
+b. TLB miss and page fault
+TLB did not has page table entry so it asked the page table but the entry is either invalid or out on disk.
+
+c. TLB hit and no page fault
+TLB contained that entry and it was valid and in memory
+
+d. TLB hit and page fault
+implies cache inconsistency, The TLB is a cache remember, this could never happen. the TLB is flushed on context switches. So there is no way the TLB can refer to the same page.
+
+5. OSC 9.21
+a. LRU replacement
+18 page faults 
+72312534677105462301
+
+77711133377775552221
+ 2222224444111444333
+  3333555666600066600
+123456789 10 11 12 13 14 15 16 17 18
+
+b. FIFO replacement
+17 page faults
+72312534677105462301
+
+77711111666600066600
+-122225555577775552221
+-1-1333444111444333
+123456789 10 11 12 13 14 15 16 17
+
+c. Optimal replacement
+13 page faults
+72312534677105462301
+
+77711111111111111111
+-122225555555554623333
+-1-133334677700000000
+12345789 10 11 12 13
+
+

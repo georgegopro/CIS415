@@ -1,0 +1,23 @@
+program bad13 =
+	constant a : Integer := FALSE;
+	type T = array[2..1] of Integer;
+	type U =	record
+					f : Integer;
+				end record;
+	var x : Integer;
+	var y : U;
+	var z : FALSE;
+
+	procedure p(var x : Integer; y : TRUE) =
+	begin // p
+		x := 1;
+	end p;
+
+begin // bad13
+	x[1] := 1;
+	x.f := 1;
+	p(FALSE, TRUE);
+	x := p;
+	FALSE := TRUE;
+	y.g := 1;
+end bad13.

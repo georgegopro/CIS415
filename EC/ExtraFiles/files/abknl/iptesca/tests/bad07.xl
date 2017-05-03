@@ -1,0 +1,13 @@
+program bad7 =
+	procedure p =
+		var x : Integer := 5;
+	begin // p
+		put(x);
+	end p;
+
+	var y : Integer := 6; // var declared after procedure
+
+begin // bad7
+	p;
+	put(y);
+end bad7.

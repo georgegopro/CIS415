@@ -1,0 +1,42 @@
+program XLSample8 =
+	constant arraySize : Integer := 10;
+	type Table = array[1..araySize] of Integer;
+	var a : table;
+	var i : Integer;
+	var x : Integer;
+	var yes : Boolean;
+
+	procedure search(searchValue : Integer;
+	                 var found : Boolean;
+					 var index : Integer) =
+		var limit : Integer := arraySize;
+
+	begin // search
+		found := FALSE;
+		index := 1;
+		while index <= arraySize and not found loop
+			if a[index] = searchValue then
+				found := TRUE;
+			else
+				index := index + 1;
+			end if;
+		end loop;
+	end search;
+
+begin // XLSample8
+	i := 1;
+	while i <= arraySize loop // input table
+		get(a[i]);
+		i := i + 1;
+	end loop;
+	loop
+		get(x);
+		exit when x = 0;
+		search(x, yes, i);
+		put(x);
+		if yes then
+			put(i);
+		end if;
+		newLine;
+	end loop;
+end XLSample8.

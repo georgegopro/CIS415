@@ -1,0 +1,7 @@
+program bad8 =
+	var x : Integer;
+
+begin // bad8
+	x := 5;
+	put(y);
+end bad42. // name doesn't match

@@ -1,0 +1,6 @@
+program bad6 =
+	var x, y : Integer;
+begin // bad6
+	y := -5;
+	x := y + z; // z not declared
+end bad6.

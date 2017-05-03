@@ -1,0 +1,6 @@
+program bad5 =
+	constant i : Integer := 2;
+	var x : Integer;
+begin // bad5
+	x := 1;
+end bad5; // semi instead of period

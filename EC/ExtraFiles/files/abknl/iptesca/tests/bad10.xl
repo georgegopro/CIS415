@@ -1,0 +1,16 @@
+program bad10 =
+	constant a : Integer := 1;
+	constant b : Integer := 2;
+	constant c : Integer :=  ; // constant missing
+	constant d : Integer := 4;
+	type S =	recrod // misspelled
+					f, g : Integer;
+				end record;
+	type T = array[1..2] of Integer;
+	var x : Integer;
+
+begin // bad10
+	if = 2 then
+		x := 1;
+	end if;
+end bad10.
